@@ -11,8 +11,9 @@ public class Execute {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		logger.debug("calling service");
+		logger.info("calling service");
 		System.out.println(new HelloWorldServiceImpl().helloWorld());
+		logger.info("finished calling service");
 
 	}
 
