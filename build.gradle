@@ -20,10 +20,12 @@ dependencies{
 
 mainClassName = "turn.key.execute.Execute"
 
+//Will add the logback.groovy file to the classpath, but not add as part of build
 task extraClasspath << {
 	sourceSets.main.runtimeClasspath.add(files('src/main/etc/logging'))
 }
 
+//This will have the extraClasspath task run prior to executing application plugin run task
 run.dependsOn extraClasspath
 
 task wrapper(type: Wrapper) {
