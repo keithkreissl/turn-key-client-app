@@ -7,7 +7,7 @@ import turn.key.tolerance.HelloWorldToleranceCommand;
 public class HelloWorldServiceImpl implements HelloWorldService {
 
 	public String helloWorld() {
-		return "Something"; //new HelloWorldToleranceCommand("hello").execute();
+		return new HelloWorldToleranceCommand("hello").execute();
 	}
 
 	
