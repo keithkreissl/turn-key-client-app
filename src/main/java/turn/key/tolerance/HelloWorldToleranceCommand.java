@@ -6,15 +6,12 @@ import javax.ws.rs.core.MediaType;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
-import com.netflix.hystrix.HystrixCommandProperties;
 
 public class HelloWorldToleranceCommand extends HystrixCommand<String> {
 	private String name;
 	
 	public HelloWorldToleranceCommand(String name){
-		super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("DefaultGroup"))
-				    .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
-				    		   .withRequestLogEnabled(false)));
+		super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("DefaultGroup")));
 		this.name = name;
 		
 	}
@@ -30,8 +27,7 @@ public class HelloWorldToleranceCommand extends HystrixCommand<String> {
 
 	@Override
 	protected String getFallback() {
-		// TODO Auto-generated method stub
-		return "there was an error in command " + this.name;
+		return "issue with service using fallback for command " + this.name;
 	}
 	
 	

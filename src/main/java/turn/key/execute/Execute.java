@@ -11,13 +11,11 @@ public class Execute {
 	private static final Logger logger = LoggerFactory.getLogger(Execute.class);
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		logger.info("calling service");
 		System.out.println(new HelloWorldServiceImpl().helloWorld());
 		logger.info("finished calling service");
 		
-		 Hystrix.reset();
+		Hystrix.reset();
 
 	}
 
